@@ -46,9 +46,14 @@ results = []
 
 # Process each burst individually
 for idx, row in file.iterrows():
+    if pd.isna(row["Burst_PNG"]) or str(row["Burst_PNG"]).strip() == "None":
+        png = "None"
+    else:
+        png = row["Burst_PNG"]
+
     burst_results = {
         "Burst_Name": row["Burst_Name"],
-        "Burst_PNG" : "None" if row["Burst_PNG"] in [None, "None"] else row["Burst_PNG"],           
+        "Burst_PNG" :png,           
         "Simple": row["Simple"],
         "Extended": row["Extended"],
         "Other": row["Other"],
@@ -97,7 +102,6 @@ for idx, row in file.iterrows():
 
     # Check if the burst's proportions fall in the 95% and 99% confidence intervals
     for category, stats in category_stats.items():
-        mean = stats["mean"]
         std_dev = stats["std_dev"]
         proportion = proportions[category]
 

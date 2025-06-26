@@ -34,6 +34,8 @@ Label Bursts with Classifications
 
 Create Image Processing and Machine Learning Labels
 
-    1.Processing Images and Create ML by running ImageRecognition file
+    1.Processing Images and Create ML by running proccess_images file
+    2.ImageRecognition will create a machine learning algorithm to classify
+    3.Generate_ml_to_csv creates a csv that labels bursts based off machine learning
 
 
